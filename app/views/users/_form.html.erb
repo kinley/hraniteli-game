@@ -1,0 +1,47 @@
+<%= form_for(@user) do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+<table class="admin_pages" cellpadding="0" cellspacing="0" border="0">
+	<tr class="first">
+		<td class="textright"><%= f.label "Фамилия" %></td>
+		<td><%= f.text_field :surname %></td>
+	</tr>
+	<tr>
+		<td class="textright"><%= f.label "Имя" %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td class="textright"><%= f.label "Отчество" %></td>
+		<td><%= f.text_field :middlename %></td>
+	</tr>
+	<tr>
+		<td class="textright"><%= f.label "Дата рождения" %></td>
+		<td><%= f.date_select :birthday, :start_year => 1970, :end_year => Time.now.year %></td>
+	</tr>
+	<tr>
+		<td class="textright"><%= f.label "номер телефона +" %></td>
+		<td><%= f.text_field :phone %></td>
+	</tr>	
+	<tr>
+		<td colspan = "2"><strong>(<span style="color:red">ВНИМАНИЕ!</span> Ответы будут приниматься только с этого номера)</strong></td>
+	</tr>
+	<tr>
+		<td class="textright"><%= f.label :email %></td>
+		<td><%= f.text_field :email %></td>
+	</tr>
+	<tr>
+		<td class="textright"><%= f.label "Пароль" %></td>
+		<td><%= f.password_field :password %></td>
+	</tr>
+	<tr>
+		<td class="textright"><%= f.label :password_confirmation, "Подтверждение" %></td>
+		<td><%= f.password_field :password_confirmation %></td>
+	</tr>
+	<tr class="last">
+		<td colspan="2"><%= render '/shared/recaptcha' %></td>
+	</tr>
+	<tr class="button">
+		<td><%= f.submit "Зарегистрироваться" %></td>
+		<td></td>
+	</tr>
+</table>
+<% end %>

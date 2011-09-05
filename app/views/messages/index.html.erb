@@ -1,0 +1,6 @@
+<%= link_to "Отправить сообщение", new_message_path %>
+
+<% @messages.each do |item| %>
+	<%= item.text %>
+	<%= item.user ? item.user.email : "для всех"%>
+<% end %>

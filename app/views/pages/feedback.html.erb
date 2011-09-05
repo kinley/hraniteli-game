@@ -1,0 +1,12 @@
+<% form_for(@page) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :href %>
+	<%= f.text_field :href %>
+
+	<%= f.label :text %>
+	<%= f.text_area :text %>
+
+	<%= f.submit %>
+<% end %>

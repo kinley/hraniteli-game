@@ -1,0 +1,8 @@
+<% @answers.each do |item| %>
+	номер телефона: <b><%= item.user.nil? ? "пользователь не найден" : item.user.phone %></b><br/>
+	id пользователя: <b><%= item.user_id.nil? ? "пользователь не найден" : item.user_id %></b><br/>
+	вопрос: <b><%= item.question.question %></b> <br/>
+	ответ пользователя: <b><%= item.text %></b> <br/>
+	верность ответа: <b><%= item.is_right %></b> <br/>
+	=================<br/>
+<% end %>

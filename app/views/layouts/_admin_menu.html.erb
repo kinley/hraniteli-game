@@ -1,0 +1,27 @@
+<ul id="user_menu">
+	<h4> <%= current_user.name %> (admin) </h4>
+	<li>
+		<%= link_to 'Страницы', pages_path %>
+	</li>
+	<li>
+		<%= link_to 'Новости', posts_path %>
+	</li>
+	<li>
+		<%= link_to 'Обратная связь', feedbacks_path %>
+	</li>
+	<li>
+		<%= link_to 'Вопросы', questions_path %>
+	</li>
+	<li>
+		<%= link_to 'Архив смс', answers_path %>
+	</li>
+	<li>
+		<%= link_to 'Пользователи', users_path %>
+	</li>
+	<li>
+		<%= link_to 'Сообщения от организаторов', messages_path %>
+	</li>
+	<li>
+		<%= link_to 'Выход', signout_path %>
+	</li>
+</ul>

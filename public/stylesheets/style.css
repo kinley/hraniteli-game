@@ -1,0 +1,374 @@
+@import url(reset.css);
+
+body{font:13px/1.231 verdana, sans-serif; *font-size:small}
+body, select, input, textarea {color: #444}
+
+::-moz-selection{background:#7c7c7c;color:#fff;text-shadow:none}
+::selection{background:#7c7c7c;color:#fff;text-shadow:none}
+a:link{-webkit-tap-highlight-color:#026ACB}
+a,a:active,a:visited{color:#026ACB}
+a:hover{color:red}
+
+h1, h2, h3, h4, h5, h6 {font-weight:bold}
+
+.hidden{display:none;visibility:hidden}
+.clearfix:before,.clearfix:after{content: "\0020"; display: block; height: 0; visibility: hidden} 
+.clearfix:after{clear: both}
+.clearfix {zoom: 1}
+.clr{clear:both}
+.alignleft{float: left}
+.alignright{float: right}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+    display: block;
+}
+.textright{
+	text-align: right;
+}
+@font-face {
+    font-family: 'MagistralBlackCRegular';
+    src: url('magistralblackc-webfont.eot');
+    src: url('magistralblackc-webfont.eot?#iefix') format('embedded-opentype'),
+         url('magistralblackc-webfont.woff') format('woff'),
+         url('magistralblackc-webfont.ttf') format('truetype'),
+         url('magistralblackc-webfont.svg#MagistralBlackCRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html{
+	min-height: 100%;
+}
+body{
+	min-height: 100%;
+	background: #2d170a url(../images/bg.jpg) center top no-repeat;
+	color: black;
+	position: relative;
+	overflow: hidden;
+}
+#books{
+	width: 237px;
+	height: 314px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+#error_explanation ul{
+	list-style: none;
+	color: red;
+}
+#error_explanation{
+	color: red;
+}
+#right_bottom{
+	position: absolute;
+	width: 302px;
+	height: 581px;
+	right: 0;
+	bottom: 0;
+}
+#city{
+	position: absolute;
+	width: 60%;
+	top:0;
+	left: 0;
+}
+#pagewrap {
+	width: 830px;
+	margin: 0 auto;
+	min-height: 1984px;
+	position: relative;
+}
+
+#header {
+	height: 300px;
+	position: relative;
+}
+#header h1{
+	font-size: 200%;
+}
+#header h2{
+	font-size: 150%;
+}
+#header hgroup{
+	text-align: center;
+	width: 100%;
+	padding-top: 90px;
+	position: relative;
+	z-index: 999;
+}
+#underlogo{
+	position: absolute;
+	background: url(../images/under_logo.png) top left no-repeat;
+	width: 654px;
+	height: 262px;
+	z-index: 0;
+	top:30px;
+	right: -270px;
+}
+input{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #CCCCCC #AAAAAA #AAAAAA #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 110%;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: normal;
+    padding: 5px 3px 3px 5px;
+}
+input:focus{
+	border:1px solid black;
+}
+nav{
+	font-size: 20px;
+	color: #f4e9b5;
+	font-family: 'MagistralBlackCRegular';
+	padding-left: 100px;
+	position: relative;
+	z-index: 999;
+}
+nav a, nav a:visited{
+	color: #f4e9b5;
+	text-decoration: none;
+	text-shadow: 3px 5px 5px black;
+	-moz-text-shadow: 3px 5px 5px black;
+	-webkit-text-shadow: 3px 5px 5px black;
+	-o-text-shadow: 3px 5px 5px black;
+	-ms-text-shadow: 3px 5px 5px black;
+}
+#content {
+	border: 3px solid #49321e;
+	background: rgba(244,233,181,0.57);
+	margin: 30px 0 30px;
+	padding: 40px 35px;
+	width: 494px;
+	float: left;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	position: relative;
+
+}
+#content .post_item{
+	padding: 20px 0 10px;
+	border-bottom: 1px solid #49321e;
+}
+#content .post_item img{
+	max-width: 100%;
+}
+#content .post_item a{
+	color: black;
+}
+#content .post_item .more_link{
+	color: black;
+}
+#content .post_item .date{
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-family: Georgia;
+	font-size: 14px;
+	text-align: left;
+}
+#content .post_item h1{
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+.admin_pages{
+	position: relative;
+	margin: 0 -30px;
+}
+#content .post_item h1:hover{
+	text-decoration: underline;
+}
+#content .post_item h1 a{
+	
+	color: black;
+	text-decoration: none;
+}
+#news_tit{
+	background: url(../images/news.png) top left no-repeat;
+	width: 235px;
+	height: 52px;
+	font-size: 18px;
+	color: #f4e9b5;
+	font-family: 'MagistralBlackCRegular';
+	position: absolute;
+	top:-15px;
+	left: 10px;
+}
+#news_tit div{
+	padding: 10px 0 0 20px;
+}
+#side_tit{
+	background: url(../images/kab.png) top left no-repeat;
+	width: 194px;
+	height: 55px;
+	font-size: 14px;
+	color: #f4e9b5;
+	font-family: 'MagistralBlackCRegular';
+	position: absolute;
+	top:-13px;
+	left: 15px;
+}
+#side_tit div{
+	padding: 15px 0 0 15px;
+}
+#sidebar {
+	width: 250px;
+	float: right;
+	margin: 30px 0 30px;
+	position: relative;
+}
+#sidebar .field input{
+	width: 95%;
+}
+#sidebar .field, #sidebar .actions{
+	padding-bottom: 10px;
+}
+input[type="submit"]{
+	background: #994003;
+	color: #F4E9B5;
+}
+input[type="submit"]:hover{
+	background: #3e2206;
+}
+#sidebar a{
+	color: black;
+}
+.widget{
+	border: 3px solid #49321e;
+	background: rgba(244,233,181,0.57);
+	margin: 0 0 30px;
+	padding: 10px 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	padding: 40px 20px;
+}
+.widget .error_signin{
+	font-size: 14px;
+	color: #ff2727;
+}
+#user_menu{
+	list-style: none;
+	margin: 0;
+}
+.widget h4{
+	font-size: 16px;
+	margin: 0 0 5px;
+	border-bottom: solid 1px #49321e;
+}
+#user_menu li{
+	margin: 0;
+	padding: 6px 0;
+	font-size: 14px;
+}
+#user_menu li a{
+	color: black;
+}
+#user_page #questions{
+	/*background: rgba(73,50,30,0.8);*/
+	width: 100%;
+}
+#user_page #questions .quest_body{
+	display: none;
+}
+#user_page #questions .active{
+	display: table-row;
+}
+#user_page .question{
+	border-top: 1px solid #666;
+	color: #a9abae;
+}
+#user_page .question td{
+	vertical-align: middle;
+	padding: 5px;
+}
+#user_page .game_over td{
+	text-align: center;
+	color: red;
+	font-size: 24px;
+}
+#user_page .wrong td.icon{
+	background: url(../images/x_28x28.png) center center no-repeat;
+}
+#user_page .current td.icon{
+	background: url(../images/arrow_right_32x32.png) center center no-repeat;
+}
+#user_page .ready td.icon{
+	background: url(../images/clock_32x32.png) center center no-repeat;
+}
+#user_page .answered td.icon{
+	background: url(../images/check_32x26.png) center center no-repeat;
+}
+#user_page .promoted td.icon{
+	background: url(../images/check_32x26.png) center center no-repeat;
+}
+#user_page .closed td.icon{
+	background: url(../images/denied_32x32.png) center center no-repeat;
+}
+#user_page .question{
+	cursor: pointer;
+}
+#user_page .question td.icon{
+	text-align: center;
+	font-size: 38px;
+	width: 38px;
+	height: 38px;
+}
+#user_page .question td.num{
+	padding: 3px 10px;
+	font-family: Georgia, sans-serif;
+	font-size: 38px;
+	max-width: 10px;
+}
+#user_page .question span{
+	/*font-family: Georgia, sans-serif;
+	font-size: 38px;*/
+}
+#user_page #questions .answered{
+	color:green;
+}
+#user_page #questions .promoted{
+	color:#9400D3;
+}
+#user_page #questions .current{
+	color:black;
+}
+#user_page #questions .current, #user_page #questions .active, #user_page #questions .ready{
+	background: none;
+	color: black;
+}
+#user_page #questions .ready{
+	color:#763c03;
+}
+#questions .questions_log{
+	padding-bottom: 10px;
+}
+#questions .questions_log .true{
+	color: green;
+}
+#questions .questions_log .false{
+	color: red;
+}
+#user_page #questions .wrong{
+	color:red;
+}
+#user_page #questions .quest_body td{
+	padding: 5px;
+} 
+#footer {
+	clear: both;
+}
+table.admin_pages td{
+	padding: 5px;
+}
+table.admin_pages .first td{
+	
+}
+table.admin_pages .stat td{
+	border-top:1px solid black;
+}

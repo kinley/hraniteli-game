@@ -1,0 +1,15 @@
+<%= form_for(:session, :url => sessions_path) do |f| %>
+	<span class="error_signin"><%= flash[:error] %></span>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, 'Пароль' %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Войти" %>
+  </div>
+<% end %>
+<%= link_to 'Зарегистрироваться', signup_path %>

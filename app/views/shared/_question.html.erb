@@ -1,0 +1,82 @@
+<% unless question.nil? %>
+
+<tr id="question_<%= question.pos %>" class="question <%= (question_class == "current" && question.is_expired?)? "wrong" : question_class %>">
+			<td class="num">
+				<span><%= question.pos %></span>
+			</td>
+			<td>
+				этап
+			</td>
+			<td class="icon"></td>
+			<td>
+				<script type="text/javascript">
+						function sec(){
+ var today = new Date();
+					      var BigDay = new Date("09 09 2011 00:00:00");
+					      var timeLeft = (BigDay.getTime() - today.getTime());
+					
+					        var e_daysLeft = timeLeft / 86400000;
+					      var daysLeft = Math.floor(e_daysLeft);
+					
+					    var e_hrsLeft = (e_daysLeft - daysLeft)*24;
+					    var hrsLeft = Math.floor(e_hrsLeft);
+					
+					    var e_minsLeft = (e_hrsLeft - hrsLeft)*60;
+					    var minsLeft = Math.floor(e_minsLeft);
+					
+					    var seksLeft = Math.floor((e_minsLeft - minsLeft)*60);
+					
+					    if (BigDay.getTime() > today.getTime() )
+					        document.getElementById("time_for").innerHTML = '<b>'+hrsLeft+'</b> час, <b>'+minsLeft+'</b> мин, <b>'+seksLeft+'</b> сек'
+					    else
+					        document.getElementById("time_for").innerHTML = '<b>Обновите страницу!!!</b>'
+						}
+						$(document).ready(function(){
+						//setInterval(sec,1000);
+						});
+			</script>
+				<% case question_class %>
+					<% when "answered" %>
+						пройден
+					<% when "wrong" %>
+						НЕ пройден
+					<% when "current" %>
+						<% if question.is_expired? %>
+							к сожалению вы проиграли..
+						<% else %>
+							до конца этапа осталось: <span id="time_for"><%= question.remaining_time_to_s %></span>
+						<% end %>
+					<% when "ready" %>
+						до начала этапа: <span id="time_for"><%= question.open_date %></span>
+					<% when "closed" %>
+						этап недоступен
+				<% end %>
+				<br/>
+			</td>
+			<td>
+		</tr>
+		<% if ["answered", "wrong", "current"].include?(question_class) %>
+		<tr class="quest_body <%= "active" if question_class == "current" %>">
+		<td colspan="2" class="textright">Вопрос: </td><td colspan="2"><%= question.question %>
+		<br>
+		<hr>
+		Присланые вами ответы:<br>
+		<div class="questions_log">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<% current_user.answers.find_all_by_question_id(question.id).each do |item| %>
+				<tr class="<%= item.is_right? ? "true" : "false" %>">
+				<td>
+					Ваш ответ: "<%= item.text %>"
+				</td><td>
+				 	- <%= item.is_right? ? "принят" : "не верный" %>
+				 </td><td>
+				 	<%= item.answer_time_to_s %>
+				 </td>
+				</tr>			
+			<% end %>	
+		</table>	
+		</div>
+		
+		</td></tr>
+		<% end %>
+<% end %>

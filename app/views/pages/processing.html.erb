@@ -1,0 +1,11 @@
+smsid: <%= params[:smsid] %> 
+status: reply
+
+Vas privetstvuet RunKZN! 
+Vopros #<%= @answer.question.pos %>
+Vash otvet: <%= params[:msg_trans] %>
+<% if @answer.is_right? %>
+Vash otvet verniy!
+<% else %>
+Vash otvet neverniy..
+<% end %>

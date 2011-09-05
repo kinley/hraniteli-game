@@ -1,0 +1,8 @@
+<% posts.each do |item| %>
+<div class="post_item">
+	<p><%= item.created_at.strftime('%m.%d.%Y') %></p>
+	<h1><%= link_to item.title, item %></h1>
+	
+	<%= item.short_text.html_safe %>
+</div>
+<% end %>

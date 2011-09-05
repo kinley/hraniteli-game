@@ -1,0 +1,21 @@
+<h1 style="border-bottom:1px solid black">Обратная связь</h1></br>
+<table  class="admin_pages" cellpadding="0" cellspacing="0" border="0">
+	<% @feedbacks.each do |i| %>
+		<tr>
+			<td style="border-top:1px solid black">
+				<%= i.from %>
+			</td>
+			<td  style="border-top:1px solid black">
+				<%= i.email %>
+			</td>
+			<td>
+			<%= link_to 'Destroy', i, :method => :delete, :confirm => "Уверены?", :title => "Удаление новости" %>
+			</td>
+		<tr>
+		<tr>
+			<td style="" colspan="3">
+	  			<%= i.text %>
+	  		</td>
+	  	</tr>
+	<% end %>
+</table>

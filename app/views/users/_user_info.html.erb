@@ -1,0 +1,10 @@
+=== ИНФОРМАЦИЯ О ПОЛЬЗОВАТЕЛЕ === <br/>
+
+Имя: <%= user.name %><br/>
+Email: <%= user.email %><br/>
+Телефон: <%= user.phone %><br/>
+<% unless user.user_info.nil? %>
+Количество отвеченных вопросов: <%= user.user_info.last_answered %><br/>
+Суммарное время: <%= user.user_info.total_answer_time_to_s %><br/>
+<% end %>
+================================== <br/>

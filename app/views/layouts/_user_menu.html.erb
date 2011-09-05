@@ -1,0 +1,18 @@
+<ul id="user_menu">
+	<h4><%= current_user.name %></h4>
+	<li>
+		<%= link_to 'Главная', root_path %>
+	</li>
+	<li>
+		<%= link_to 'Личный кабинет', current_user %>
+	</li>
+	<li>
+		<%= link_to 'Обратная связь', new_feedback_path %>
+	</li>
+	<li>
+		<%= link_to 'Сообщения от организаторов', [user_path(current_user), "messages"].join("/") %>
+	</li>
+	<li>
+		<%= link_to 'Выход', signout_path %>
+	</li>
+</ul>

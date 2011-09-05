@@ -1,0 +1,16 @@
+Sent sms info<br/>
+<%= @sms.each do |i| %>
+	<%= i.date %> |
+	<%= i.msg %> |
+	<%= i.msg_trans %> |
+	<%= i.operator_id %> |
+	<%= i.country_id %> |
+	<%= i.operator %> |
+	<%= i.user_id %> |
+	<%= i.smsid %> |
+	<%= i.num %> |
+	<%= i.cost %> |
+	<%= i.test %> |
+	<%= i.cost_rur %> |
+	<%= i.sign %> <br/>
+<% end %>

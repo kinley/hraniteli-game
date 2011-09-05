@@ -1,0 +1,13 @@
+<h1 style="border-bottom:1px solid black">Статистика ответов на вопросы</h1></br>
+<table  class="admin_pages" cellpadding="0" cellspacing="0" border="0">
+
+<% @questions.each do |item| %>
+	<%= item.pos %>
+	<%= item.question %> <br/>
+	<%= item.answer %> <br/>
+	<%= item.open_date %> <br/>
+	<%= link_to 'Show', item %> | <%= link_to 'Edit', edit_question_path(item) %> | <%= link_to 'Destroy', item, :method => :delete, :confirm => "Уверены?", :title => "Удаление новости" %><br/>
+	<hr>
+<% end %>
+<%= link_to "Добавить вопрос", new_question_path %><br/>
+</table>

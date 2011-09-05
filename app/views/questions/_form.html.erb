@@ -1,0 +1,42 @@
+<% form_for(@question) do |f| %>
+<table  class="admin_pages" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<%= f.label 'Вопрос' %>
+		</td>
+		<td>
+			<%= f.text_area :question %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label 'Ответ' %>
+		</td>
+		<td>
+			<%= f.text_field :answer %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label 'Позиция' %>
+		</td>
+		<td>
+			<%= f.text_field :pos %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.label 'Дата открытия' %>
+		</td>
+		<td>
+			<%= f.datetime_select :open_date %> 
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="text-align:right">
+			<%= f.submit 'Опубликовать' %>
+		</td>
+	</tr>
+</table>
+<% end %>

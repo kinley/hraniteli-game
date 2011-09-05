@@ -1,0 +1,68 @@
+<table id="questions">
+	<% questions.each do |question| %>
+		<tr id="question_<%= question.pos %>" class="question <%= question.type %>">
+			<td class="num">
+				<span><%= question.pos %></span>
+			</td>
+			<td>
+				этап
+			</td>
+			<td class="icon"></td>
+			<td>
+				<script type="text/javascript">
+						$('#time_for').countdown(new Date(<%= question.remaining_time_to_s %>), {prefix:'', finish: ''});;
+						
+			</script>
+				<% case question.type %>
+					<% when "answered" %>
+						пройден
+					<% when "promoted" %>
+						пройден с использованием промо-кода
+					<% when "wrong" %>
+						НЕ пройден
+					<% when "current" %>
+						<% if question.is_expired? %>
+							к сожалению вы проиграли..
+						<% else %>
+							до конца этапа осталось: <span id="time_for"><%= question.remaining_time_to_s %></span>
+						<% end %>
+					<% when "ready" %>
+						до начала этапа: <span id="time_for"><%= question.remaining_time_to_s %></span>
+					<% when "closed" %>
+						этап недоступен
+				<% end %>
+				<br/>
+			</td>
+		</tr>
+		<% if ["answered", "wrong", "current", "promoted"].include?(question.type) %>
+			<tr class="quest_body <%= "active" if question.type == "current" %>">
+				<td colspan="2" class="textright">Вопрос: </td>
+				<td colspan="2"><%= question.question %><br/><hr/>
+					Присланые вами ответы:<br/>
+					<div class="questions_log">
+						<table cellpadding="0" cellspacing="0" border="0">
+						<% current_user.answers.find_all_by_question_id(question.id).each do |item| %>
+							<tr class="<%= item.is_right? ? "true" : "false" %>">
+								<td>Ваш ответ: "<%= item.text %>"
+								</td><td>
+									- <%= item.is_right? ? "принят" : "не верный" %>
+								</td><td>
+								<%= item.answer_time_to_s %>
+								</td>
+							</tr>			
+						<% end %>	
+						</table>	
+					</div>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>
+
+<% if questions.empty? %>
+	вопросы еще не заданы
+<% end %>
+
+<% if questions.last.type == ("answered" || "promoted") %>
+	поздравляем! 
+<% end %>

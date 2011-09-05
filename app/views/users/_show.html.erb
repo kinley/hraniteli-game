@@ -1,0 +1,37 @@
+<div id="user_page">
+	<%= render "user_info", :user => @user %>
+	
+	<br/><br/>
+	======================<br/>
+	<% unless Question.find_all_remaining_by_pos(current_user.user_info.last_answered).empty? %>
+	<table id="questions">
+	<% current_user.answered_questions.each do |item| %>
+		<% ans = current_user.answers.find_all_by_question_id(item.id).last() %>
+		<% if !ans.nil? && ans.is_right? %>
+			<%= render 'shared/question', :question => item, :question_class => "answered" %>
+		<% else %>
+			<%= render 'shared/question', :question => item, :question_class => "wrong" %>
+		<% end %>
+	<% end %>
+	<% if !current_user.current_question.nil? %>
+	<%= render 'shared/question', :question => current_user.current_question, :question_class => (current_user.last_opened_is_not_answered? ? "current" : "ready")  %>
+	<% end %>	
+	<% if current_user.last_opened_is_expired? %>
+		<tr class = "question game_over"><td colspan="4">GAME OVER!</td></tr>		
+	<% end %>
+	<% unless current_user.remaining_questions.empty? %>
+	<% current_user.remaining_questions.each do |item| %>
+		<%= render 'shared/question', :question => item, :question_class => "closed" %>
+	<% end %>
+	<% end %>
+	</table>
+	<% else %>
+	вопросы закончились!
+	<% end %>
+	<hr>
+	
+	<br/><br/>
+	<div><b>Образец для перевода ответа в цифровой код: </b></b><br/>
+	<img src="/images/klava.jpg"
+	</div>
+</div>

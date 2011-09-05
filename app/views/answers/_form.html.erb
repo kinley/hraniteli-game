@@ -1,0 +1,15 @@
+<% form_for(@answer) do |f| %>
+	<%= f.label :question %>
+	<%= f.text_area :question %>
+	
+	<%= f.label :answer %>
+	<%= f.text_area :answer %>
+	
+	<%= f.label :pos %>
+	<%= f.text_field :pos %>
+	
+	<%= f.label :open_date %>
+	<%= f.datetime_select :open_date %> 
+	
+	<%= f.submit %>
+<% end %>

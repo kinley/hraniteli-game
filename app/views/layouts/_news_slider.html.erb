@@ -1,0 +1,17 @@
+		<div id="circle">
+			<div id="blocks">
+				<% news.each do |n| %>
+					<div class="block alignleft">
+						<%= link_to image_tag(n.photo.url(:thumb), :alt => n.title), post_path(n.id) %>
+						<div class="dscr">
+							<%= n.title %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		
+		
+			
+			
+		

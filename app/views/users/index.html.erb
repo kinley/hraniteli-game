@@ -1,0 +1,31 @@
+<h1 style="border-bottom:1px solid black">Статистика ответов на вопросы</h1></br>
+<table  class="admin_pages" cellpadding="0" cellspacing="0" border="0">
+	
+	<% @questions.each do |item| %>
+	<tr>
+		<td>Ответило на вопрос №<%= item.pos %>:</td><td> <%= User.answered_to_question(item.pos) %></td>
+	</tr>
+	<% end %>
+</table>
+<br><br>
+<table  class="admin_pages" cellpadding="0" cellspacing="0" border="0">
+	<tr class="first">
+		<td><%= link_to "ФИО", "?sort_by=surname"%></td>
+		<td><%= link_to "номер телефона", "?sort_by=phone" %></td><td><%= link_to "email пользователя", "?sort_by=email" %></td><td> отв </td><td> вр (дн | ч) </td><td></td><td>
+	</tr>
+	<% @users.each do |item| %>
+	<tr class="stat">
+	<td>
+		<%= link_to item.full_name, view_user_path(item.id) %> </td><td>
+		<%= item.phone %> </td><td>
+		<%= item.email %> </td><td>
+		<%= item.user_info.last_answered unless item.user_info.nil? %> </td><td>
+		<% t = Time.at(item.user_info.total_answer_time).utc unless item.user_info.nil? %>
+		<%= t.strftime("#{t.day - 1} | %H:%M:%S") unless item.user_info.nil? %> </td><td>
+	    <%= link_to "Destroy", item, :method =>  :delete, :confirm => "Уверены?", :title => "Удаление пользователя" %></td>
+	   </tr>
+	<% end %>
+	<tr><td colspan="7">
+	<%= will_paginate %>
+	<td></tr>
+</table>

@@ -1,0 +1,11 @@
+id: <%= @user.id %><br/>
+Фамилия: <%= @user.surname %><br/>
+Имя: <%= @user.name %><br/>
+Отчество: <%= @user.middlename %><br/>
+Email: <%= @user.email %><br/>
+Номер телефона: <%= @user.phone %><br/>
+День рождения: <%= @user.birthday.strftime("%d.%m.%Y") if @user.birthday %><br/>
+===<br/>
+Количество отвеченных: <%= @user.user_info.last_answered %><br/>
+<% t = Time.at(@user.user_info.total_answer_time).utc %>
+Суммарное время: <%= t.strftime("дней: #{t.day - 1} , часов: %H:%M:%S") %><br/>

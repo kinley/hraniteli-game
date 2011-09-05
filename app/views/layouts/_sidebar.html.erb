@@ -1,0 +1,9 @@
+<% if signed_in? %>
+	<% if current_user.admin? %>
+		<%= render 'layouts/admin_menu' %>
+	<% else %>
+		<%= render 'layouts/user_menu' %>
+	<% end %>
+<% else %>
+	<%= render 'shared/login' %>
+<% end %>

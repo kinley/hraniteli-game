@@ -1,0 +1,44 @@
+<h1 style="border-bottom:1px solid black">Страницы</h1>
+<table class="admin_pages" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			Заголовок
+		</td>
+		<td>
+			Ссылка
+		</td>
+		<td>
+		</td>
+		<td>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<% @pages.each do |item| %>
+	<tr>
+		<td style="border-right:1px solid black">
+			<strong><%= item.title %></strong>
+		</td>
+		<td style="border-right:1px solid black">
+			<%= item.href %>
+		</td>
+		<td style="border-right:1px solid black">
+			<%= link_to 'Просмотр', 'pages/' + item.href %>
+		</td>
+		<td style="border-right:1px solid black">
+			<%= link_to 'Редактирование', edit_page_path(item) %>
+		</td>
+		<td >
+			<%= link_to 'Удалить', item, :method => :delete, :confirm => "Уверены?", :title => "Удаление страницы" %>
+		</td>
+	</tr>
+	<% end %>
+	<tr>
+		<td></td>
+		<td></td>
+		<td colspan="3" style="text-align:right">
+			<%= link_to "Добавить страницу", new_page_path %>
+		</td>
+	</tr>
+</table>
+
